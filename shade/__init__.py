@@ -585,6 +585,15 @@ class OpenStackCloud(object):
 
 class OperatorCloud(OpenStackCloud):
 
+
+    def __init__(self, cloud, **kwargs):
+        super(OperatorCloud, self).__init__(
+            cloud, **kwargs)
+
+        self.private = kwargs.get('private', True)
+        self.endpoint_type = kwargs.get('endpoint_type', 'privateURL')
+        self.on_behalf_of = kwargs.get('on_behalf_of', self.project_name
+
     @property
     def ironic_client(self):
         if self._ironic_client is None:
