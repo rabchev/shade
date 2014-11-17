@@ -434,7 +434,7 @@ class OpenStackCloud(object):
         return None
 
     def get_server_id(self, server_name):
-        server = get_server_by_name(server_name)
+        server = self.get_server_by_name(server_name)
         if server:
             return server.id
         return None
